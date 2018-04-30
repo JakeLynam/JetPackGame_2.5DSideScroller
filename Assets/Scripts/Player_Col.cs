@@ -35,7 +35,7 @@ public class Player_Col : MonoBehaviour
 		GetComponent<MeshRenderer>().enabled = false;
 		GetComponent<Player_Controls>().enabled = false;
 		GetComponent<Player_Move> ().enabled = false;
-		GetComponent<ParticleSystem>().Play ();
+		GetComponent<ParticleSystem> ().Play ();
 
 		//play death audio
 		//save score

@@ -25,12 +25,11 @@ public class Player_Controls : MonoBehaviour {
 		if (Input.GetButton ("Jump") && jetPackFuel >= 0.001f)
 		{
 			BoostUp ();
-			jetPack.GetComponent<ParticleSystem>().Play ();
+			jetPack.GetComponent<ParticleSystem> ().Play ();
 			
-		}
-			else 
+		} else 
 			{
-				jetPack.GetComponent<ParticleSystem>().Stop ();
+				jetPack.GetComponent<ParticleSystem> ().Stop ();
 			}
 	
 	}
