@@ -8,6 +8,7 @@ public class Player_Controls : MonoBehaviour {
 	public static float jetPackFuel = 1.5f;
 	public float jetPackForce = 10.0f;
 	public int count;
+	public GameObject jetPack;
 
 	public Text countText;
 
@@ -24,7 +25,13 @@ public class Player_Controls : MonoBehaviour {
 		if (Input.GetButton ("Jump") && jetPackFuel >= 0.001f)
 		{
 			BoostUp ();
+			jetPack.GetComponent<ParticleSystem>().Play ();
+			
 		}
+			else 
+			{
+				jetPack.GetComponent<ParticleSystem>().Stop ();
+			}
 	
 	}
 

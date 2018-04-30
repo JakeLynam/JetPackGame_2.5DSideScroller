@@ -7,8 +7,10 @@ public class Object_Spawner : MonoBehaviour
 	public GameObject[] coins;
 	public GameObject enemys;
 	public GameObject player;
+	public GameObject[] trees;
 	private float enemySpawnTimer = 10.0f;
 	private float coinSpawnTimer = 7.0f;
+	private float treeSpawnTimer = 0.5f;
 
 
 
@@ -18,7 +20,8 @@ public class Object_Spawner : MonoBehaviour
 	{
 		coinSpawnTimer -= Time.deltaTime;
 		enemySpawnTimer -= Time.deltaTime;
-		
+		treeSpawnTimer -= Time.deltaTime;
+
 		if (coinSpawnTimer < 0.01)
 		{
 			SpawnCoins();
@@ -27,6 +30,11 @@ public class Object_Spawner : MonoBehaviour
 		if (enemySpawnTimer < 0.01)
 		{
 			SpawnEnemy();
+		}
+
+		if (treeSpawnTimer < 0.01)
+		{
+			SpawnTrees();
 		}
 	}
 
@@ -44,5 +52,11 @@ public class Object_Spawner : MonoBehaviour
 		enemys.transform.localScale = new Vector3(Random.Range (1, 5), Random.Range (1, 5), Random.Range (1, 5));
 		Instantiate (enemys, new Vector3 (player.transform.position.x + 20, Random.Range(1, 9), 0), Quaternion.identity);
 		enemySpawnTimer = Random.Range (1.0f, 3.0f);
+	}
+
+	void SpawnTrees()
+	{
+		Instantiate (trees [(Random.Range (0, trees.Length))], new Vector3 (player.transform.position.x + 70, 0, Random.Range (5, 22)), Quaternion.identity);
+		treeSpawnTimer = 0.5f;
 	}
 }
